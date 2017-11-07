@@ -21,7 +21,7 @@ public class Main {
         Plant plant = new Plant("plant "+1, new RoseSpecification(1,"good",2,new Date(),"Country","red"));
         Plant plant1 = new Plant("plant "+2, new RoseSpecification(2,"good",3,new Date(),"Country","red"));
 
-        System.out.println(plant.compare(plant1, new CompareByPrice()));
+
 
 
     }
