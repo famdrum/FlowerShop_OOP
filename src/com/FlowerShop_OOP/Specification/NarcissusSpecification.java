@@ -1,3 +1,5 @@
+package com.FlowerShop_OOP.Specification;
+
 import java.util.Date;
 
 public class NarcissusSpecification extends Specification {

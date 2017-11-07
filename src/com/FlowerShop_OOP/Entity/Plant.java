@@ -1,3 +1,7 @@
+package com.FlowerShop_OOP.Entity;
+
+import com.FlowerShop_OOP.Specification.Specification;
+
 public class Plant {
     private String name;
     private Specification specification;
@@ -13,5 +17,13 @@ public class Plant {
 
     public Specification getSpecification() {
         return specification;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpecification(Specification specification) {
+        this.specification = specification;
     }
 }

@@ -1,3 +1,5 @@
+package com.FlowerShop_OOP.Specification;
+
 import java.util.Date;
 
 public class RoseSpecification extends Specification {
@@ -12,5 +14,9 @@ public class RoseSpecification extends Specification {
 
     public String getColor() {
         return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

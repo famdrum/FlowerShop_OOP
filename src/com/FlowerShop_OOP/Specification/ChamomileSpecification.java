@@ -1,3 +1,7 @@
+package com.FlowerShop_OOP.Specification;
+
+import com.FlowerShop_OOP.Specification.Specification;
+
 import java.util.Date;
 
 public class ChamomileSpecification extends Specification {
