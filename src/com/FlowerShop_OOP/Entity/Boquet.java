@@ -39,6 +39,15 @@ public class Boquet {
         this.price = price;
     }
 
+    public void addFlower(Plant plant){
+        this.plants.add(plant);
+        this.price+=plant.getSpecification().getPrice();
+    }
+    public  void removeFlower(Plant plant) {
+        this.plants.remove(plant);
+        this.price-=plant.getSpecification().getPrice();
+    }
+
 
 
 }

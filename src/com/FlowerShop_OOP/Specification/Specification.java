@@ -1,19 +1,20 @@
 package com.FlowerShop_OOP.Specification;
 
+import com.FlowerShop_OOP.Entity.Plant;
+
+import java.util.Comparator;
 import java.util.Date;
 
-public  abstract class Specification {
+public  abstract class Specification{
     private int price;
-    private String name;
     private String smell;
     private int lengthOfStem;
     private Date freshness;
     private String originCountry;
 
-    Specification(int price, String name, String smell,
+    Specification(int price,  String smell,
                   int lengthOfStem, Date freshness, String originCountry) {
         this.price = price;
-        this.name = name;
         this.smell = smell;
         this.lengthOfStem = lengthOfStem;
         this.freshness = freshness;
@@ -24,9 +25,7 @@ public  abstract class Specification {
         return price;
     }
 
-    public String getName() {
-        return name;
-    }
+
 
     public String getSmell() {
         return smell;
@@ -44,5 +43,40 @@ public  abstract class Specification {
         return originCountry;
     }
 
-    // TODO: implement compare method
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+
+
+    public void setSmell(String smell) {
+        this.smell = smell;
+    }
+
+    public void setLengthOfStem(int lengthOfStem) {
+        this.lengthOfStem = lengthOfStem;
+    }
+
+    public void setFreshness(Date freshness) {
+        this.freshness = freshness;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Specification{" +
+                "price=" + price +
+                ", smell='" + smell + '\'' +
+                ", lengthOfStem=" + lengthOfStem +
+                ", freshness=" + freshness +
+                ", originCountry='" + originCountry + '\'' +
+                '}';
+    }
+
+
 }
