@@ -89,6 +89,15 @@ public class Shop {
         return min1;
     }
 
+    private int names_count(Boquet b1, String name){
+        int names = 0;
+        for (int i = 0; i < b1.getPlants().size(); i++){
+            if (b1.getPlants().get(i).getName() == name){
+                names += 1;
+            }
+        }
+        return names;
+    }
     public Boquet compare(Boquet b1, Boquet b2){
         System.out.println("Select type of compare: 1 length, 2 freshness, 3 price, 4 name");
         Scanner in = new Scanner(System.in);
@@ -104,8 +113,6 @@ public class Shop {
             int compar = comparator.compare(plant1, plant2);
             if (compar > 0) {
                 return b1;
-            } else {
-                return b2;
             }
         }
         else if (typeOfCompare == 2) {
@@ -115,19 +122,22 @@ public class Shop {
             if (comparator.compare(b1_freshness, b2_freshness) > 0){
                 return b1;
             }
-            else{
-                return b2;
-            }
         }
         else if (typeOfCompare == 3){
             if (b1.getPrice() < b2.getPrice()){
                 return  b1;
             }
-            else{
-                return b2;
+        }
+        else if (typeOfCompare == 4){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter a flower name ");
+            String name = sc.nextLine();
+            int b1_names = this.names_count(b1, name);
+            int b2_names = this.names_count(b2, name);
+            if (b1_names > b2_names){
+                return b1;
             }
         }
-        return b1;
+        return b2;
     }
-   
 }
