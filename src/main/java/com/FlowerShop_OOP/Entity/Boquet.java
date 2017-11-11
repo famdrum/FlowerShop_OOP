@@ -43,6 +43,7 @@ public class Boquet {
     public void addFlower(Plant plant){
         this.plants.add(plant);
         this.price+=plant.getSpecification().getPrice();
+        this.cut(this,minVal(this));
     }
     public  void removeFlower(Plant plant) {
         this.plants.remove(plant);
@@ -50,5 +51,29 @@ public class Boquet {
     }
 
 
+    private int minVal(Boquet b1){
+        int minValue = b1.getPlants().get(0).getSpecification().getLengthOfStem();
+        for (int i = 0; i < b1.getPlants().size(); i++){
+            if (b1.getPlants().get(i).getSpecification().getLengthOfStem() < minValue) {
+                minValue = b1.getPlants().get(i).getSpecification().getLengthOfStem();
+            }
+        }
+        return minValue;
+    }
 
+    private Boquet cut(Boquet b1, int minval){
+        for (int i = 0; i < b1.getPlants().size(); i++) {
+            b1.getPlants().get(i).getSpecification().setLengthOfStem(minval);
+        }
+        return b1;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Boquet{" +
+                "plants=" + plants +
+                ", price=" + price +
+                "\n";
+    }
 }

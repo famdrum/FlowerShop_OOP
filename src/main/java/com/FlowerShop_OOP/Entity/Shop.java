@@ -12,12 +12,6 @@ public class Shop {
 
     private List<Plant> allPlants;
     private List<Boquet> allBuqqets;
-
-
-
-
-
-
     public Shop(){
         allPlants = new ArrayList<Plant>();
         allBuqqets = new ArrayList<Boquet>();
@@ -76,22 +70,6 @@ public class Shop {
         /*String address =*/ terminalInput.nextLine();
         System.out.println("Thanks for your purchase");
     }
-    private int minVal(Boquet b1){
-        int minValue = b1.getPlants().get(0).getSpecification().getLengthOfStem();
-        for (int i = 0; i < b1.getPlants().size(); i++){
-            if (b1.getPlants().get(i).getSpecification().getLengthOfStem() < minValue) {
-                minValue = b1.getPlants().get(i).getSpecification().getLengthOfStem();
-            }
-        }
-        return minValue;
-    }
-
-    private Boquet cut(Boquet b1, int minval){
-        for (int i = 0; i < b1.getPlants().size(); i++) {
-            b1.getPlants().get(i).getSpecification().setLengthOfStem(minval);
-        }
-        return b1;
-    }
 
     private Plant freshness(Boquet b1) {
         CompareByFreshness comparator = new CompareByFreshness();
@@ -119,10 +97,6 @@ public class Shop {
         Scanner in = new Scanner(System.in);
         int typeOfCompare = in.nextInt();
         if (typeOfCompare == 1) {
-            int minValueb1 = this.minVal(b1);
-            int minValueb2 = this.minVal(b2);
-            b1 = this.cut(b1, minValueb1);
-            b2 = this.cut(b2, minValueb2);
             Plant plant1 = b1.getPlants().get(0);
             Plant plant2 = b2.getPlants().get(0);
             CompareBylength comparator = new CompareBylength();
@@ -130,6 +104,8 @@ public class Shop {
             if (compar > 0) {
                 return b1;
             }
+            else
+                return b2;
         }
         else if (typeOfCompare == 2) {
             Plant b1_freshness = this.freshness(b1);
