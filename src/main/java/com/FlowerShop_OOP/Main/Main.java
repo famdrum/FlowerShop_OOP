@@ -1,4 +1,4 @@
-package main.com.FlowerShop_OOP.Main;
+package com.FlowerShop_OOP.Main;
 
 import main.com.FlowerShop_OOP.Entity.Plant;
 import main.com.FlowerShop_OOP.Specification.RoseSpecification;

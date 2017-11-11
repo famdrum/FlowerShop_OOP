@@ -1,4 +1,4 @@
-package main.com.FlowerShop_OOP.Entity;
+package com.FlowerShop_OOP.Entity;
 
 import java.util.ArrayList;
 

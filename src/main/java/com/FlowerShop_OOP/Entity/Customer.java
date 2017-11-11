@@ -1,4 +1,4 @@
-package main.com.FlowerShop_OOP.Entity;
+package com.FlowerShop_OOP.Entity;
 
 /**
  * Created by Victor on 07.11.2017.

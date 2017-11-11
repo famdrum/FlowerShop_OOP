@@ -1,4 +1,4 @@
-package main.com.FlowerShop_OOP.Entity;
+package com.FlowerShop_OOP.Entity;
 
 import main.com.FlowerShop_OOP.Specification.Specification;
 
