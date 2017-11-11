@@ -40,7 +40,7 @@ public class Plant {
     public String toString() {
         return "Plant{" +
                 "name='" + name + '\'' +
-                ", specification=" + specification +
-                '}';
+                ",\n specification=" + specification +
+                "\n";
     }
 }

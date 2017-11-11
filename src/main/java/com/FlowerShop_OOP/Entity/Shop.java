@@ -3,6 +3,7 @@ package com.FlowerShop_OOP.Entity;
 
 import com.FlowerShop_OOP.Comparators.CompareByFreshness;
 import com.FlowerShop_OOP.Comparators.CompareBylength;
+import com.FlowerShop_OOP.Main.Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +17,11 @@ public class Shop {
         allPlants = new ArrayList<Plant>();
         allBuqqets = new ArrayList<Boquet>();
         fillShopWithGoods();
-
-
     }
 
     public void pay_online(Customer cst, Boquet boquet) {
         System.out.println("Select payment method: 1 PayPal, 2 credit/debit card");
-        Scanner in = new Scanner(System.in);
-        int num = in.nextInt();
+        int num = Main.scanner.nextInt();
         if (num == 1) {
             System.out.println("Signing in your PayPal account..");
             if (cst.getBalance() > boquet.getPrice()) {
@@ -44,12 +42,11 @@ public class Shop {
         System.out.println("Thanks for your purchase");
     }
 
-    public void delivery(Customer cst, Boquet boquet) {
+    public void delivery(Customer cst) {
         int ukr_p = 25;
         int new_p = 40;
         System.out.println("Select shipping method: 1 Нова пошта, 2 Укрпошта");
-        Scanner in = new Scanner(System.in);
-        int num = in.nextInt();
+        int num = Main.scanner.nextInt();
         if (num == 1) {
             if (cst.getBalance() > new_p) {
                 cst.charge(new_p);
@@ -65,23 +62,12 @@ public class Shop {
                 return;
             }
         }
-        Scanner terminalInput = new Scanner(System.in);
+
         System.out.println("Enter your Shipping address ");
-        /*String address =*/ terminalInput.nextLine();
+        /*String address =*/ Main.scanner.nextLine();
         System.out.println("Thanks for your purchase");
     }
 
-    private Plant freshness(Boquet b1) {
-        CompareByFreshness comparator = new CompareByFreshness();
-        Plant min1 = b1.getPlants().get(0);
-        for (int i = 1; i < b1.getPlants().size()- 1; i++) {
-            int mn = comparator.compare(min1, b1.getPlants().get(i));
-            if (mn > 0) {
-                min1 = b1.getPlants().get(i);
-            }
-        }
-        return min1;
-    }
 
     private int names_count(Boquet b1, String name){
         int names = 0;
@@ -92,10 +78,9 @@ public class Shop {
         }
         return names;
     }
-    public Boquet compare(Boquet b1, Boquet b2){
+    public Boquet compare(Boquet b1, Boquet b2){ //TODO Make only with comparators
         System.out.println("Select type of compare: 1 length, 2 freshness, 3 price, 4 name");
-        Scanner in = new Scanner(System.in);
-        int typeOfCompare = in.nextInt();
+        int typeOfCompare = Main.scanner.nextInt();
         if (typeOfCompare == 1) {
             Plant plant1 = b1.getPlants().get(0);
             Plant plant2 = b2.getPlants().get(0);
@@ -103,17 +88,16 @@ public class Shop {
             int compar = comparator.compare(plant1, plant2);
             if (compar > 0) {
                 return b1;
-            }
-            else
+            }else
                 return b2;
         }
         else if (typeOfCompare == 2) {
-            Plant b1_freshness = this.freshness(b1);
-            Plant b2_freshness = this.freshness(b2);
             CompareByFreshness comparator = new CompareByFreshness();
-            if (comparator.compare(b1_freshness, b2_freshness) > 0){
+            if (comparator.compare(b1, b2) > 0){
                 return b1;
             }
+            else
+                return b2;
         }
         else if (typeOfCompare == 3){
             if (b1.getPrice() <= b2.getPrice()){
@@ -131,7 +115,7 @@ public class Shop {
                 return b1;
             }
         }
-        return b2;
+        return null;
     }
 
     @Override
@@ -156,6 +140,39 @@ public class Shop {
             this.allBuqqets.add(boquet);
         }
     }
+
+    public void showAllBoquets(){
+        System.out.println("Available boquets\n");
+        for(int i=0; i<getAllBuqqets().size();i++){
+            System.out.println(i+1+") "+getAllBuqqets().get(i));
+        }
+    }
+
+    public void showAllFlowers(){
+        System.out.println("Available flowers\n");
+        for(int i=0; i<getAllPlants().size();i++){
+            System.out.println((i+1)+") "+getAllPlants().get(i).getName());
+        }
+    }
+
+    public List<Plant> getAllPlants() {
+        return allPlants;
+    }
+
+    public void setAllPlants(List<Plant> allPlants) {
+        this.allPlants = allPlants;
+    }
+
+    public List<Boquet> getAllBuqqets() {
+        return allBuqqets;
+    }
+
+    public void setAllBuqqets(List<Boquet> allBuqqets) {
+        this.allBuqqets = allBuqqets;
+    }
+
+
+
 
 
 }
