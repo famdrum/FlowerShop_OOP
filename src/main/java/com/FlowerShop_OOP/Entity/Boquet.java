@@ -14,7 +14,7 @@ public class Boquet {
 
 
     public Boquet() {
-        plants = new ArrayList<>();
+        plants = new ArrayList<Plant>();
     }
 
     public Boquet(List<Plant> plants) {

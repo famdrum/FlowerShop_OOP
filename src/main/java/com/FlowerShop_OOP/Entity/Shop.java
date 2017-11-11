@@ -1,20 +1,14 @@
 package com.FlowerShop_OOP.Entity;
-import main.com.FlowerShop_OOP.Comparators.CompareByFreshness;
-import main.com.FlowerShop_OOP.Comparators.CompareBylength;
+
+
+import com.FlowerShop_OOP.Comparators.CompareByFreshness;
+import com.FlowerShop_OOP.Comparators.CompareBylength;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Shop {
-    {
-        allPlants = new ArrayList<>();
-        allBuqqets = new ArrayList<>();
-
-
-
-    }
-
 
     private List<Plant> allPlants;
     private List<Boquet> allBuqqets;
@@ -25,6 +19,11 @@ public class Shop {
 
 
     public Shop(){
+        allPlants = new ArrayList<Plant>();
+        allBuqqets = new ArrayList<Boquet>();
+        fillShopWithGoods();
+
+
     }
 
     public void pay_online(Customer cst, Boquet boquet) {
@@ -141,9 +140,10 @@ public class Shop {
             }
         }
         else if (typeOfCompare == 3){
-            if (b1.getPrice() < b2.getPrice()){
+            if (b1.getPrice() <= b2.getPrice()){
                 return  b1;
-            }
+            }else
+                return b2;
         }
         else if (typeOfCompare == 4){
             Scanner sc = new Scanner(System.in);
@@ -157,4 +157,29 @@ public class Shop {
         }
         return b2;
     }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "allPlants=" + allPlants +
+                "\n, allBuqqets=" + allBuqqets +
+                '}';
+    }
+
+    private void fillShopWithGoods(){// Запонює магазин квітами і букетами по замовчуванню
+        for (int i=0; i<Flowers.values().length;i++){
+            Plant plant = new Plant(Flowers.values()[i].name(),Flowers.values()[i].getSpecification());
+            this.allPlants.add(plant);
+        }
+
+        for(int i=0; i<5; i++){
+            Boquet boquet = new Boquet();
+            for (int j=0; j<9;j++){
+                boquet.addFlower(allPlants.get((int)(Math.random()*(this.allPlants.size()-1))));
+            }
+            this.allBuqqets.add(boquet);
+        }
+    }
+
+
 }
