@@ -1,8 +1,8 @@
-package com.FlowerShop_OOP.Entity;
+package main.java.FlowerShop_OOP.Entity;
 
 
-import com.FlowerShop_OOP.Comparators.CompareByFreshness;
-import com.FlowerShop_OOP.Comparators.CompareBylength;
+import main.java.FlowerShop_OOP.Comparators.CompareByFreshness;
+import main.java.FlowerShop_OOP.Comparators.CompareBylength;
 
 import java.util.ArrayList;
 import java.util.List;

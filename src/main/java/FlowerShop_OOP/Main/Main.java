@@ -1,4 +1,4 @@
-package com.FlowerShop_OOP.Main;
+package main.java.FlowerShop_OOP.Main;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package com.FlowerShop_OOP.Entity;
+package main.java.FlowerShop_OOP.Entity;
 
 /**
  * Created by Victor on 07.11.2017.
