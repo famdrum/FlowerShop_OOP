@@ -1,4 +1,4 @@
-package main.java.FlowerShop_OOP.Specification;
+package com.FlowerShop_OOP.Specification;
 
 import java.util.Date;
 

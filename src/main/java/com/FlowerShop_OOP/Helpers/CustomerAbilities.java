@@ -3,14 +3,11 @@ package com.FlowerShop_OOP.Helpers;
 import com.FlowerShop_OOP.Comparators.CompareBoquetByPriceAsc;
 import com.FlowerShop_OOP.Comparators.CompareBoquetByPriceDis;
 import com.FlowerShop_OOP.Comparators.CompareByFreshness;
-import com.FlowerShop_OOP.Entity.Boquet;
 import com.FlowerShop_OOP.Entity.Customer;
 import com.FlowerShop_OOP.Entity.Shop;
 import com.FlowerShop_OOP.Main.Main;
 
 import java.util.Collections;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Created by Victor on 11.11.2017.

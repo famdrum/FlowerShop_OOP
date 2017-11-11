@@ -1,6 +1,6 @@
-package main.java.FlowerShop_OOP.Comparators;
+package com.FlowerShop_OOP.Comparators;
 
-import main.java.FlowerShop_OOP.Entity.Plant;
+import com.FlowerShop_OOP.Entity.Plant;
 
 import java.util.Comparator;
 

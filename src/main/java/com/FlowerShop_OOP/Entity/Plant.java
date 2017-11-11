@@ -1,8 +1,8 @@
-package main.java.FlowerShop_OOP.Entity;
+package com.FlowerShop_OOP.Entity;
 
 
 
-import main.java.FlowerShop_OOP.Specification.Specification;
+import com.FlowerShop_OOP.Specification.Specification;
 
 import java.util.Comparator;
 
