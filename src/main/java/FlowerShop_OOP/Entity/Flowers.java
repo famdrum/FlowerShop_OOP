@@ -1,6 +1,6 @@
-package com.FlowerShop_OOP.Entity;
+package main.java.FlowerShop_OOP.Entity;
 
-import com.FlowerShop_OOP.Specification.*;
+import main.java.FlowerShop_OOP.Specification.*;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.FlowerShop_OOP.Main;
+package main.java.FlowerShop_OOP.Main;
 
 import com.FlowerShop_OOP.Entity.Shop;
 import com.FlowerShop_OOP.Helpers.Worker;
