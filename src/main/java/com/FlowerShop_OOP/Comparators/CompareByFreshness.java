@@ -9,7 +9,6 @@ import java.util.Comparator;
  */
 public class CompareByFreshness implements Comparator<Plant> {
 
-    @Override
     public int compare(Plant o1, Plant o2) {
         return o1.getSpecification().getFreshness().compareTo(o2.getSpecification().getFreshness());
     }
