@@ -12,7 +12,7 @@ public class WorkerTest {
     private Shop shop;
 
     @Before
-    void  init() {
+    public void  init() {
         shop = new Shop();
     }
 
