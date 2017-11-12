@@ -26,10 +26,4 @@ public class CustomerTest {
         Customer customer = new Customer(200);
         assertThat("Wrong balance", 200, is(customer.getBalance()));
     }
-
-    @Test
-    public void toString() throws Exception {
-        Customer customer = new Customer(200);
-        assertThat("Wrong balance", "Customer{moneyAvailable=200}", is(customer.toString()));
-    }
 }
