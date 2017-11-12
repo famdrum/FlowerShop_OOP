@@ -51,23 +51,28 @@ public class Worker {
         }
     }
 
-    private   static  void addNewPlant(Shop shop) {
-        Main.scanner.nextLine();
-        System.out.println("Enter name");
-        String name = Main.scanner.nextLine();
-        System.out.println("Enter price");
-        int price= Main.scanner.nextInt();
-        Main.scanner.nextLine();
-        System.out.println("Enter smell");
-        String smell = Main.scanner.nextLine();
-        System.out.println("Enter lenght of stem");
-        int lenght = Main.scanner.nextInt();
-        Main.scanner.nextLine();
-        System.out.println("Country of origin");
-        String country = Main.scanner.nextLine();
-        SimpleSpecificaton simpleSpecificaton = new SimpleSpecificaton(price,smell,lenght, new Date(),country);
-        Plant plant = new Plant(name,simpleSpecificaton);
-        shop.getAllPlants().add(plant);
+    public static boolean addNewPlant(Shop shop) {
+        try {
+            Main.scanner.nextLine();
+            System.out.println("Enter name");
+            String name = Main.scanner.nextLine();
+            System.out.println("Enter price");
+            int price = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+            System.out.println("Enter smell");
+            String smell = Main.scanner.nextLine();
+            System.out.println("Enter lenght of stem");
+            int lenght = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+            System.out.println("Country of origin");
+            String country = Main.scanner.nextLine();
+            SimpleSpecificaton simpleSpecificaton = new SimpleSpecificaton(price, smell, lenght, new Date(), country);
+            Plant plant = new Plant(name, simpleSpecificaton);
+            shop.getAllPlants().add(plant);
+        } catch (Exception e){
+            return  false;
+        }
+        return true;
 
 
     }
@@ -100,27 +105,38 @@ public class Worker {
 
     }
 
-    private static void deleteBuquet(Shop shop) {
-        shop.showAllBoquets();
-        System.out.println("Choose boquet to delete");
-        int choose = Main.scanner.nextInt();
-        Main.scanner.nextLine();
-
-        shop.getAllBuqqets().remove(choose-1);
+    public static boolean deleteBuquet(Shop shop) {
+        try {
+            shop.showAllBoquets();
+            System.out.println("Choose boquet to delete");
+            int choose = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+            shop.getAllBuqqets().remove(choose - 1);
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
+        return true;
 
     }
 
-    private static void deleteFlower(Shop shop) {
-        shop.showAllFlowers();
-        System.out.println("Choose plant to delete");
-        int choose = Main.scanner.nextInt();
+    public static boolean deleteFlower(Shop shop) {
+        try {
 
-        for(int i=0; i<shop.getAllBuqqets().size();i++) {
-            if(shop.getAllBuqqets().get(i).getPlants().contains(shop.getAllPlants().get(choose-1))){
-                shop.getAllBuqqets().get(i).removeFlower(shop.getAllPlants().get(choose-1));
+
+            shop.showAllFlowers();
+            System.out.println("Choose plant to delete");
+            int choose = Main.scanner.nextInt();
+
+            for (int i = 0; i < shop.getAllBuqqets().size(); i++) {
+                if (shop.getAllBuqqets().get(i).getPlants().contains(shop.getAllPlants().get(choose - 1))) {
+                    shop.getAllBuqqets().get(i).removeFlower(shop.getAllPlants().get(choose - 1));
+                }
             }
+            shop.getAllPlants().remove(choose - 1);
+        } catch (Exception e){
+            return false;
         }
-        shop.getAllPlants().remove(choose-1);
+        return true;
 
     }
 }

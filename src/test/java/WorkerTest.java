@@ -24,6 +24,20 @@ public class WorkerTest {
         assertTrue(Worker.addNewBuquet(shop));
     }
 
+    @Test
+    public  void deleteBoquetTest(){
+        assertTrue(Worker.deleteBuquet(shop));
+    }
+
+    @Test
+    public  void addFlowerTest(){
+        assertTrue(Worker.addNewPlant(shop));
+    }
+    @Test
+    public  void deleteFlowerTest(){
+        assertTrue(Worker.deleteFlower(shop));
+    }
+
 
 
 
