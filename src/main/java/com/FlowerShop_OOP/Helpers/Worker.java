@@ -6,6 +6,7 @@ import com.FlowerShop_OOP.Entity.Shop;
 import com.FlowerShop_OOP.Main.Main;
 import com.FlowerShop_OOP.Specification.SimpleSpecificaton;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -71,24 +72,30 @@ public class Worker {
 
     }
 
-    public static void addNewBuquet(Shop shop) {
+    public static boolean addNewBuquet(Shop shop) {
 
-        Boquet boquet = new Boquet();
-        shop.showAllFlowers();
-        System.out.println("Choose flowers to add\n For example 1234 - for adding flowers 1,2,3,4\n If you want to add one flower more than 1 time" +
-                "print ints number as many times as you want");
+        try {
+            Boquet boquet = new Boquet();
+            shop.showAllFlowers();
+            System.out.println("Choose flowers to add\n For example 1234 - for adding flowers 1,2,3,4\n If you want to add one flower more than 1 time" +
+                    "print ints number as many times as you want");
 
-        int flowers = Main.scanner.nextInt();
+            int flowers = Main.scanner.nextInt();
 
-        while (flowers != 0) {
+            while (flowers != 0) {
 
-            boquet.addFlower(shop.getAllPlants().get((flowers%10) - 1));
-            flowers=flowers/10;
+                boquet.addFlower(shop.getAllPlants().get((flowers % 10) - 1));
+                flowers = flowers / 10;
 
+            }
+            System.out.println("Your boquet is " + boquet.toString());
+            shop.getAllBuqqets().add(boquet);
+            Main.scanner.nextLine();
+            return true;
+        }catch (IndexOutOfBoundsException e) {
+            System.out.println("Wrong option");
+            return false;
         }
-        System.out.println("Your boquet is "+boquet.toString());
-        shop.getAllBuqqets().add(boquet);
-        Main.scanner.nextLine();
 
 
     }

@@ -1,6 +1,5 @@
-package com.FlowerShop_OOP.Entity;
 
-import org.junit.Assert;
+import com.FlowerShop_OOP.Entity.Customer;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
