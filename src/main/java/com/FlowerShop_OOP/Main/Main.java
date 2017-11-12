@@ -16,7 +16,6 @@ public class Main {
     static public Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args)throws CloneNotSupportedException  {
-        System.out.println("Welcome");
         Shop shop = new Shop();
 
 
