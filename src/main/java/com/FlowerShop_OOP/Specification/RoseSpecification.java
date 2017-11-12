@@ -2,7 +2,7 @@ package com.FlowerShop_OOP.Specification;
 
 import java.util.Date;
 
-public class RoseSpecification extends Specification {
+public class RoseSpecification extends Specification implements Cloneable {
     private String color;
 
     public RoseSpecification(int price, String smell,
@@ -20,5 +20,8 @@ public class RoseSpecification extends Specification {
         this.color = color;
     }
 
-
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

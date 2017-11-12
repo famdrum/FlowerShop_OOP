@@ -6,13 +6,17 @@ import com.FlowerShop_OOP.Specification.Specification;
 
 import java.util.Comparator;
 
-public class Plant {
+public class Plant{
     private String name;
     private Specification specification;
 
     public Plant(String name, Specification specification) {
         this.name = name;
         this.specification = specification;
+    }
+    public Plant(Plant plant){
+        this.name=plant.getName();
+        this.specification=plant.getSpecification();
     }
 
     public String getName() {
@@ -38,9 +42,10 @@ public class Plant {
 
     @Override
     public String toString() {
-        return "Plant{" +
-                "name='" + name + '\'' +
-                ",\n specification=" + specification +
+        return  name+
+                "  " + specification +
                 "\n";
     }
+
+
 }

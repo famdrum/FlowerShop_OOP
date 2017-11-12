@@ -2,7 +2,7 @@ package com.FlowerShop_OOP.Specification;
 
 import java.util.Date;
 
-public  abstract class Specification{
+public  abstract class Specification implements Cloneable{
     private int price;
     private String smell;
     private int lengthOfStem;
@@ -66,13 +66,15 @@ public  abstract class Specification{
 
     @Override
     public String toString() {
-        return "Specification{" +
-                "price=" + price +
-                ", smell='" + smell + '\'' +
-                ", lengthOfStem=" + lengthOfStem +
-                ", freshness=" + freshness +
-                ", originCountry='" + originCountry + '\'' +
-                '}';
+        return "Price=" + price +
+                "$ Smell= " + smell + '\'' +
+                " LengthOfStem= " + lengthOfStem +
+                " sm Freshness=" + freshness +
+                " OriginCountry= " + originCountry+"\n";
+    }
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 

@@ -11,6 +11,7 @@ public class Boquet {
 
     private List<Plant> plants;
     private int price;
+    private  int avarageLenght;
 
 
     public Boquet() {
@@ -40,10 +41,18 @@ public class Boquet {
         this.price = price;
     }
 
+    public int getAvarageLenght() {
+        return avarageLenght;
+    }
+
+    public void setAvarageLenght(int avarageLenght) {
+        this.avarageLenght = avarageLenght;
+    }
+
     public void addFlower(Plant plant){
         this.plants.add(plant);
         this.price+=plant.getSpecification().getPrice();
-        this.cut(this,minVal(this));
+        this.avarageLenght=averageVal();
     }
     public  void removeFlower(Plant plant) {
         this.plants.remove(plant);
@@ -51,29 +60,23 @@ public class Boquet {
     }
 
 
-    private int minVal(Boquet b1){
-        int minValue = b1.getPlants().get(0).getSpecification().getLengthOfStem();
-        for (int i = 0; i < b1.getPlants().size(); i++){
-            if (b1.getPlants().get(i).getSpecification().getLengthOfStem() < minValue) {
-                minValue = b1.getPlants().get(i).getSpecification().getLengthOfStem();
-            }
-        }
-        return minValue;
-    }
+    private int averageVal(){
 
-    private Boquet cut(Boquet b1, int minval){
-        for (int i = 0; i < b1.getPlants().size(); i++) {
-            b1.getPlants().get(i).getSpecification().setLengthOfStem(minval);
+        int avarageValue = getPlants().get(0).getSpecification().getLengthOfStem();
+
+        for (int i = 0; i < getPlants().size(); i++){
+                avarageValue += getPlants().get(i).getSpecification().getLengthOfStem();
         }
-        return b1;
+        avarageValue =(int)(avarageValue/getPlants().size());
+
+        return  avarageValue;
     }
 
 
     @Override
     public String toString() {
-        return "Boquet{" +
-                "plants=" + plants +
-                ", price=" + price +
-                "\n";
+        return  "\nComponents =\n" + plants +
+                "\nPrice=" + price +
+                "$\nAvarageLenght=" + avarageLenght;
     }
 }

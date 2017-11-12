@@ -2,8 +2,9 @@ package com.FlowerShop_OOP.Entity;
 
 
 import com.FlowerShop_OOP.Comparators.CompareByFreshness;
-import com.FlowerShop_OOP.Comparators.CompareBylength;
+import com.FlowerShop_OOP.Comparators.CompareBylengthAsc;
 import com.FlowerShop_OOP.Main.Main;
+import com.FlowerShop_OOP.Specification.Specification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ public class Shop {
         }
 
         System.out.println("Enter your Shipping address ");
-        /*String address =*/ Main.scanner.nextLine();
+        String address = Main.scanner.nextLine();
         System.out.println("Thanks for your purchase");
     }
 
@@ -82,10 +83,8 @@ public class Shop {
         System.out.println("Select type of compare: 1 length, 2 freshness, 3 price, 4 name");
         int typeOfCompare = Main.scanner.nextInt();
         if (typeOfCompare == 1) {
-            Plant plant1 = b1.getPlants().get(0);
-            Plant plant2 = b2.getPlants().get(0);
-            CompareBylength comparator = new CompareBylength();
-            int compar = comparator.compare(plant1, plant2);
+            CompareBylengthAsc comparator = new CompareBylengthAsc();
+            int compar = comparator.compare(b1, b2);
             if (compar > 0) {
                 return b1;
             }else
@@ -128,14 +127,19 @@ public class Shop {
 
     private void fillShopWithGoods(){// Запонює магазин квітами і букетами по замовчуванню
         for (int i=0; i<Flowers.values().length;i++){
-            Plant plant = new Plant(Flowers.values()[i].name(),Flowers.values()[i].getSpecification());
-            this.allPlants.add(plant);
-        }
+            try {
+                Plant plant = new Plant(Flowers.values()[i].name(), (Specification)Flowers.values()[i].getSpecification().clone());
+                this.allPlants.add(plant);
+            }catch (CloneNotSupportedException e){
+                e.printStackTrace();
 
+            }
+        }
         for(int i=0; i<5; i++){
             Boquet boquet = new Boquet();
-            for (int j=0; j<9;j++){
-                boquet.addFlower(allPlants.get((int)(Math.random()*(this.allPlants.size()-1))));
+            for (int j=0; j<5;j++){
+                Plant plant = new Plant(allPlants.get((int)(Math.random()*(this.allPlants.size()-1))));
+                boquet.addFlower(plant);
             }
             this.allBuqqets.add(boquet);
         }
@@ -151,7 +155,7 @@ public class Shop {
     public void showAllFlowers(){
         System.out.println("Available flowers\n");
         for(int i=0; i<getAllPlants().size();i++){
-            System.out.println((i+1)+") "+getAllPlants().get(i).getName());
+            System.out.println((i+1)+") "+getAllPlants().get(i).getName()+" "+getAllPlants().get(i).getSpecification());
         }
     }
 

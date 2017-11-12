@@ -79,10 +79,10 @@ public class Worker {
 
     }
 
-    private static void addNewBuquet(Shop shop){
+    public static void addNewBuquet(Shop shop){
 
         Boquet boquet = new Boquet();
-        shop.showAllBoquets();
+        shop.showAllFlowers();
         System.out.println("Choose flowers to add\n For example 1234 - for adding flowers 1,2,3,4\n If you want to add one flower more than 1 time" +
                 "print ints number as many times as you want");
 
@@ -118,7 +118,7 @@ public class Worker {
 
         for(int i=0; i<shop.getAllBuqqets().size();i++){
             if(shop.getAllBuqqets().get(i).getPlants().contains(shop.getAllPlants().get(choose-1))){
-                shop.getAllBuqqets().get(i).getPlants().remove(shop.getAllPlants().get(choose-1));
+                shop.getAllBuqqets().get(i).removeFlower(shop.getAllPlants().get(choose-1));
             }
         }
         shop.getAllPlants().remove(choose-1);
