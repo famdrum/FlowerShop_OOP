@@ -16,10 +16,20 @@ public class CustomerTest {
 
     @Test
     public void setMoneyAvailable() throws Exception {
+        Customer customer = new Customer(200);
+        customer.charge(180);
+        assertThat("Wrong balance", 180, is(customer.getBalance()));
     }
 
     @Test
     public void getBalance() throws Exception {
+        Customer customer = new Customer(200);
+        assertThat("Wrong balance", 200, is(customer.getBalance()));
     }
 
+    @Test
+    public void toString() throws Exception {
+        Customer customer = new Customer(200);
+        assertThat("Wrong balance", "Customer{moneyAvailable=200}", is(customer.toString()));
+    }
 }
