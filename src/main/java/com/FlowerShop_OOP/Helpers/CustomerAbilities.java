@@ -49,7 +49,7 @@ public class CustomerAbilities {
         int choose = Main.scanner.nextInt();
         choose = choose-1;
         Main.scanner.nextLine();
-        shop.pay_online(customer, shop.getAllBuqqets().get(choose));
+        shop.payOnline(customer, shop.getAllBuqqets().get(choose));
         shop.delivery(customer);
     }
 
@@ -98,7 +98,7 @@ public class CustomerAbilities {
 
     private static void makeYourOwnBoquet(Shop shop,Customer customer){
         Worker.addNewBuquet(shop);
-        shop.pay_online(customer, shop.getAllBuqqets().get(shop.getAllBuqqets().size()-1));
+        shop.payOnline(customer, shop.getAllBuqqets().get(shop.getAllBuqqets().size()-1));
         shop.delivery(customer);
 
     }

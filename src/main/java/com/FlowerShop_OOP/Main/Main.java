@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args)throws CloneNotSupportedException  {
         Shop shop = new Shop();
 
-
         String role = "1";
         while (!role.equals("3")) {
             System.out.println("Choose your role\n1-Client\n2-Admin\n3-end work");
@@ -34,12 +33,9 @@ public class Main {
                 default:{
                     System.out.println("Thank`s");
                 }
-
-
             }
         }
         scanner.close();
-
     }
 }
 
