@@ -14,7 +14,7 @@ public class Shop {
 
     private List<Plant> allPlants;
     private List<Boquet> allBuqqets;
-    public Shop(){
+    public Shop() {
         allPlants = new ArrayList<Plant>();
         allBuqqets = new ArrayList<Boquet>();
         fillShopWithGoods();
@@ -68,16 +68,16 @@ public class Shop {
     }
 
 
-    private int names_count(Boquet b1, String name){
+    private int names_count(Boquet b1, String name) {
         int names = 0;
-        for (int i = 0; i < b1.getPlants().size(); i++){
+        for (int i = 0; i < b1.getPlants().size(); i++) {
             if (b1.getPlants().get(i).getName().equals(name)){
                 names += 1;
             }
         }
         return names;
     }
-    public Boquet compare(Boquet b1, Boquet b2){ //TODO Make only with comparators
+    public Boquet compare(Boquet b1, Boquet b2) { //TODO Make only with comparators
         System.out.println("Select type of compare: 1 length, 2 freshness, 3 price, 4 name");
         int typeOfCompare = Main.scanner.nextInt();
         if (typeOfCompare == 1) {
@@ -96,18 +96,18 @@ public class Shop {
             else
                 return b2;
         }
-        else if (typeOfCompare == 3){
-            if (b1.getPrice() <= b2.getPrice()){
+        else if (typeOfCompare == 3) {
+            if (b1.getPrice() <= b2.getPrice()) {
                 return  b1;
             }else
                 return b2;
         }
-        else if (typeOfCompare == 4){
+        else if (typeOfCompare == 4) {
             System.out.println("Enter a flower name ");
             String name = Main.scanner.nextLine();
             int b1_names = this.names_count(b1, name);
             int b2_names = this.names_count(b2, name);
-            if (b1_names > b2_names){
+            if (b1_names > b2_names) {
                 return b1;
             }else
                 return b2;
@@ -123,19 +123,19 @@ public class Shop {
                 '}';
     }
 
-    private void fillShopWithGoods(){// Запонює магазин квітами і букетами по замовчуванню
-        for (int i=0; i<Flowers.values().length;i++){
+    private void fillShopWithGoods() {// Запонює магазин квітами і букетами по замовчуванню
+        for (int i=0; i<Flowers.values().length;i++) {
             try {
                 Plant plant = new Plant(Flowers.values()[i].name(), (Specification)Flowers.values()[i].getSpecification().clone());
                 this.allPlants.add(plant);
-            }catch (CloneNotSupportedException e){
+            }catch (CloneNotSupportedException e) {
                 e.printStackTrace();
 
             }
         }
-        for(int i=0; i<5; i++){
+        for(int i=0; i<5; i++) {
             Boquet boquet = new Boquet();
-            for (int j=0; j<5;j++){
+            for (int j=0; j<5;j++) {
                 Plant plant = new Plant(allPlants.get((int)(Math.random()*(this.allPlants.size()-1))));
                 boquet.addFlower(plant);
             }
@@ -143,16 +143,16 @@ public class Shop {
         }
     }
 
-    public void showAllBoquets(){
+    public void showAllBoquets() {
         System.out.println("Available boquets\n");
-        for(int i=0; i<getAllBuqqets().size();i++){
+        for(int i=0; i<getAllBuqqets().size();i++) {
             System.out.println(i+1+") "+getAllBuqqets().get(i));
         }
     }
 
-    public void showAllFlowers(){
+    public void showAllFlowers() {
         System.out.println("Available flowers\n");
-        for(int i=0; i<getAllPlants().size();i++){
+        for(int i=0; i<getAllPlants().size();i++) {
             System.out.println((i+1)+") "+getAllPlants().get(i).getName()+" "+getAllPlants().get(i).getSpecification());
         }
     }

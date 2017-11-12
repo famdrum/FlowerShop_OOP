@@ -20,7 +20,6 @@ public class CustomerAbilities {
 
         while (work.equals("y")) {
             choose = Main.scanner.nextInt();
-
             switch (choose) {
                 case 1: {
                     buyBoquet(shop, customer);
@@ -39,19 +38,10 @@ public class CustomerAbilities {
                     continue;
                 }
             }
-
-
             System.out.println("Do you want to do something else?\ny-For yes, anything else for no");
             work = Main.scanner.nextLine();
-
-
         }
-
-
     }
-
-
-
 
     private static  void buyBoquet(Shop shop, Customer customer){
         shop.showAllBoquets();

@@ -1,19 +1,14 @@
 package com.FlowerShop_OOP.Main;
 
 import com.FlowerShop_OOP.Entity.Customer;
-import com.FlowerShop_OOP.Entity.Flowers;
 import com.FlowerShop_OOP.Entity.Shop;
 import com.FlowerShop_OOP.Helpers.CustomerAbilities;
 import com.FlowerShop_OOP.Helpers.Worker;
-import com.FlowerShop_OOP.Specification.RoseSpecification;
-import com.FlowerShop_OOP.Specification.Specification;
-
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
 
-    static public Scanner scanner = new Scanner(System.in);
+    static final public Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args)throws CloneNotSupportedException  {
         Shop shop = new Shop();
@@ -43,6 +38,7 @@ public class Main {
 
             }
         }
+        scanner.close();
 
     }
 }

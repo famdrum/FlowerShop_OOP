@@ -44,19 +44,11 @@ public class Worker {
                     continue;
                 }
             }
-
             Main.scanner.nextLine();
             System.out.println("Do you want to do something else?\ny-For yes, anything else for no");
             work=Main.scanner.nextLine();
-
-
         }
-
-
-
-
     }
-
 
     private   static  void addNewPlant(Shop shop){
         Main.scanner.nextLine();
@@ -124,7 +116,4 @@ public class Worker {
         shop.getAllPlants().remove(choose-1);
 
     }
-
-
-
 }
