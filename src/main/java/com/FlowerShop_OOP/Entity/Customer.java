@@ -3,7 +3,7 @@ package com.FlowerShop_OOP.Entity;
 /**
  * Created by Victor on 07.11.2017.
  */
-public class Customer  implements  Cloneable{
+public class Customer  implements  Cloneable {
     private int moneyAvailable;
 
      public Customer(int moneyAvailable) {

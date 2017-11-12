@@ -43,7 +43,7 @@ public class CustomerAbilities {
         }
     }
 
-    private static  void buyBoquet(Shop shop, Customer customer){
+    private static  void buyBoquet(Shop shop, Customer customer) {
         shop.showAllBoquets();
         System.out.println("Choose boquet that you want to buy");
         int choose = Main.scanner.nextInt();
@@ -53,7 +53,7 @@ public class CustomerAbilities {
         shop.delivery(customer);
     }
 
-    private static void showBoqetsToCustomerByHisWilling(Shop shop){
+    private static void showBoqetsToCustomerByHisWilling(Shop shop) {
 
         System.out.println("We can show you buckets in way that you like\n1)Sorted by price Ascending\n2)Sorted by price Discending\n" +
                 "3)Sorted by Freshness\n4)Sorted by lenght of stem discending\n5)Sorted by lenght of stem Ascending\n Please choose");
@@ -96,7 +96,7 @@ public class CustomerAbilities {
 
     }
 
-    private static void makeYourOwnBoquet(Shop shop,Customer customer){
+    private static void makeYourOwnBoquet(Shop shop,Customer customer) {
         Worker.addNewBuquet(shop);
         shop.payOnline(customer, shop.getAllBuqqets().get(shop.getAllBuqqets().size()-1));
         shop.delivery(customer);

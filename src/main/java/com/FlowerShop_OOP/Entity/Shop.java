@@ -67,7 +67,7 @@ public class Shop {
     private int namesCount(Boquet b1, String name) {
         int names = 0;
         for (int i = 0; i < b1.getPlants().size(); i++) {
-            if (b1.getPlants().get(i).getName().equals(name)){
+            if (b1.getPlants().get(i).getName().equals(name)) {
                 names += 1;
             }
         }
@@ -82,12 +82,12 @@ public class Shop {
             int compar = comparator.compare(one, two);
             if (compar > 0) {
                 return one;
-            }else
+            } else
                 return two;
         }
         else if (typeOfCompare == 2) {
             CompareByFreshness comparator = new CompareByFreshness();
-            if (comparator.compare(one, two) > 0){
+            if (comparator.compare(one, two) > 0) {
                 return one;
             }
             else
@@ -96,7 +96,7 @@ public class Shop {
         else if (typeOfCompare == 3) {
             if (one.getPrice() <= two.getPrice()) {
                 return  one;
-            }else
+            } else
                 return two;
         }
         else if (typeOfCompare == 4) {
@@ -106,7 +106,7 @@ public class Shop {
             int btwo = this.namesCount(two, name);
             if (bone > btwo) {
                 return one;
-            }else
+            } else
                 return two;
         }
         return null;

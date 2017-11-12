@@ -49,9 +49,9 @@ public class Boquet {
         this.avarageLenght = avarageLenght;
     }
 
-    public void addFlower(Plant plant){
+    public void addFlower(Plant plant) {
         this.plants.add(plant);
-        this.price+=plant.getSpecification().getPrice();
+        this.price += plant.getSpecification().getPrice();
         this.avarageLenght=averageVal();
     }
     public  void removeFlower(Plant plant) {
@@ -60,15 +60,14 @@ public class Boquet {
     }
 
 
-    private int averageVal(){
+    private int averageVal() {
 
         int avarageValue = getPlants().get(0).getSpecification().getLengthOfStem();
 
-        for (int i = 0; i < getPlants().size(); i++){
+        for (int i = 0; i < getPlants().size(); i++) {
                 avarageValue += getPlants().get(i).getSpecification().getLengthOfStem();
         }
-        avarageValue =(int)(avarageValue/getPlants().size());
-
+        avarageValue = avarageValue/getPlants().size();
         return  avarageValue;
     }
 

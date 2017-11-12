@@ -6,7 +6,7 @@ import com.FlowerShop_OOP.Specification.Specification;
 
 import java.util.Comparator;
 
-public class Plant{
+public class Plant {
     private String name;
     private Specification specification;
 
@@ -14,7 +14,7 @@ public class Plant{
         this.name = name;
         this.specification = specification;
     }
-    public Plant(Plant plant){
+    public Plant(Plant plant) {
         this.name=plant.getName();
         this.specification=plant.getSpecification();
     }
