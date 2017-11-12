@@ -11,6 +11,9 @@ import java.util.Comparator;
  */
 public class CompareByFreshness implements Comparator<Boquet> , Serializable {
 
+
+    private static final long serialVersionUID = -3241663860811867410L;
+
     public int compare(Boquet o1, Boquet o2) {
         Plant b1_freshness = this.freshness(o1);
         Plant b2_freshness = this.freshness(o2);

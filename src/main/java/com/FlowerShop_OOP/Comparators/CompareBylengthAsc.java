@@ -11,6 +11,9 @@ import java.util.Comparator;
  */
 public class CompareBylengthAsc implements Comparator<Boquet>,Serializable {
 
+
+    private static final long serialVersionUID = -4627372391695772546L;
+
     public int compare(Boquet o1, Boquet o2) {
         return o1.getAvarageLenght()-o2.getAvarageLenght();
     }
