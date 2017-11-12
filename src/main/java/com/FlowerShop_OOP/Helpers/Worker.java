@@ -14,15 +14,15 @@ import java.util.Date;
 public class Worker {
 
 
-    public static void work(Shop shop){
+    public static void work(Shop shop) {
         String work="y";
         System.out.println("You have such functions\n 1)Add Plant\n2)RemovePlant\n3)Add Boquet\n4)Remove Boquet\n Choose what you want to do");
         int choose;
 
-        while (work.equals("y")){
+        while (work.equals("y")) {
             choose = Main.scanner.nextInt();
 
-            switch (choose){
+            switch (choose) {
                 case 1:{
                     addNewPlant(shop);
                     break;
@@ -44,21 +44,13 @@ public class Worker {
                     continue;
                 }
             }
-
             Main.scanner.nextLine();
             System.out.println("Do you want to do something else?\ny-For yes, anything else for no");
             work=Main.scanner.nextLine();
-
-
         }
-
-
-
-
     }
 
-
-    private   static  void addNewPlant(Shop shop){
+    private   static  void addNewPlant(Shop shop) {
         Main.scanner.nextLine();
         System.out.println("Enter name");
         String name = Main.scanner.nextLine();
@@ -79,7 +71,7 @@ public class Worker {
 
     }
 
-    public static void addNewBuquet(Shop shop){
+    public static void addNewBuquet(Shop shop) {
 
         Boquet boquet = new Boquet();
         shop.showAllFlowers();
@@ -88,7 +80,7 @@ public class Worker {
 
         int flowers = Main.scanner.nextInt();
 
-        while (flowers!=0){
+        while (flowers != 0) {
 
             boquet.addFlower(shop.getAllPlants().get((flowers%10) - 1));
             flowers=flowers/10;
@@ -101,7 +93,7 @@ public class Worker {
 
     }
 
-    private static void deleteBuquet(Shop shop){
+    private static void deleteBuquet(Shop shop) {
         shop.showAllBoquets();
         System.out.println("Choose boquet to delete");
         int choose = Main.scanner.nextInt();
@@ -111,12 +103,12 @@ public class Worker {
 
     }
 
-    private static void deleteFlower(Shop shop){
+    private static void deleteFlower(Shop shop) {
         shop.showAllFlowers();
         System.out.println("Choose plant to delete");
         int choose = Main.scanner.nextInt();
 
-        for(int i=0; i<shop.getAllBuqqets().size();i++){
+        for(int i=0; i<shop.getAllBuqqets().size();i++) {
             if(shop.getAllBuqqets().get(i).getPlants().contains(shop.getAllPlants().get(choose-1))){
                 shop.getAllBuqqets().get(i).removeFlower(shop.getAllPlants().get(choose-1));
             }
@@ -124,7 +116,4 @@ public class Worker {
         shop.getAllPlants().remove(choose-1);
 
     }
-
-
-
 }

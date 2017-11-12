@@ -3,6 +3,7 @@ package com.FlowerShop_OOP.Specification;
 import java.util.Date;
 
 public  abstract class Specification implements Cloneable{
+
     private int price;
     private String smell;
     private int lengthOfStem;

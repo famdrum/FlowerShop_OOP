@@ -20,7 +20,6 @@ public class CustomerAbilities {
 
         while (work.equals("y")) {
             choose = Main.scanner.nextInt();
-
             switch (choose) {
                 case 1: {
                     buyBoquet(shop, customer);
@@ -39,31 +38,22 @@ public class CustomerAbilities {
                     continue;
                 }
             }
-
-
             System.out.println("Do you want to do something else?\ny-For yes, anything else for no");
             work = Main.scanner.nextLine();
-
-
         }
-
-
     }
 
-
-
-
-    private static  void buyBoquet(Shop shop, Customer customer){
+    private static  void buyBoquet(Shop shop, Customer customer) {
         shop.showAllBoquets();
         System.out.println("Choose boquet that you want to buy");
         int choose = Main.scanner.nextInt();
         choose = choose-1;
         Main.scanner.nextLine();
-        shop.pay_online(customer, shop.getAllBuqqets().get(choose));
+        shop.payOnline(customer, shop.getAllBuqqets().get(choose));
         shop.delivery(customer);
     }
 
-    private static void showBoqetsToCustomerByHisWilling(Shop shop){
+    private static void showBoqetsToCustomerByHisWilling(Shop shop) {
 
         System.out.println("We can show you buckets in way that you like\n1)Sorted by price Ascending\n2)Sorted by price Discending\n" +
                 "3)Sorted by Freshness\n4)Sorted by lenght of stem discending\n5)Sorted by lenght of stem Ascending\n Please choose");
@@ -106,9 +96,9 @@ public class CustomerAbilities {
 
     }
 
-    private static void makeYourOwnBoquet(Shop shop,Customer customer){
+    private static void makeYourOwnBoquet(Shop shop,Customer customer) {
         Worker.addNewBuquet(shop);
-        shop.pay_online(customer, shop.getAllBuqqets().get(shop.getAllBuqqets().size()-1));
+        shop.payOnline(customer, shop.getAllBuqqets().get(shop.getAllBuqqets().size()-1));
         shop.delivery(customer);
 
     }
