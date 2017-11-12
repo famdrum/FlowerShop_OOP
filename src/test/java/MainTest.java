@@ -1,10 +1,8 @@
-package com.FlowerShop_OOP.Main;
 
+
+import com.FlowerShop_OOP.Main.Main;
 import org.junit.Test;
 
-import java.util.Scanner;
-
-import static org.junit.Assert.*;
 
 public class MainTest {
     @Test
