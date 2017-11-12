@@ -8,6 +8,7 @@ import com.FlowerShop_OOP.Specification.SimpleSpecificaton;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.InputMismatchException;
 
 /**
  * Created by Victor on 11.11.2017.
@@ -69,7 +70,7 @@ public class Worker {
             SimpleSpecificaton simpleSpecificaton = new SimpleSpecificaton(price, smell, lenght, new Date(), country);
             Plant plant = new Plant(name, simpleSpecificaton);
             shop.getAllPlants().add(plant);
-        } catch (Exception e){
+        } catch (InputMismatchException e){
             return  false;
         }
         return true;
@@ -133,7 +134,7 @@ public class Worker {
                 }
             }
             shop.getAllPlants().remove(choose - 1);
-        } catch (Exception e){
+        } catch (IndexOutOfBoundsException e){
             return false;
         }
         return true;
