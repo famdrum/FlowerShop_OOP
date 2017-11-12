@@ -11,8 +11,7 @@ import java.util.Date;
 public enum Flowers {
 
 
-    ROSE(new RoseSpecification(25,"light",25,new Date(),"Netherlands","red")),
-    WHITEROSE(new RoseSpecification(35,"light",50,new Date(),"Netherlands","white")),
+    ROSE(new RoseSpecification(25,"light",25,new Date(),"Netherlands","red")),WHITEROSE(new RoseSpecification(35,"light",50,new Date(),"Netherlands","white")),
     CHAMOMILE(new ChamomileSpecification(10,"good",19,new Date(),"Ukraine")),
     NARCISSUS(new NarcissusSpecification(3,"nice",17,new Date(),"Russia")),
     TULIP(new TulipSpecification(14,"none",20,new Date(),"Poland"));
@@ -27,9 +26,6 @@ public enum Flowers {
         return specification;
     }
 
-    public void setSpecification(Specification specification) {
-        this.specification = specification;
-    }
 
 
 

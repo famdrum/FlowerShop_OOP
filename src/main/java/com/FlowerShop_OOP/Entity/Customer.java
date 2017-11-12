@@ -32,6 +32,6 @@ public class Customer  implements  Cloneable{
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new Customer(this.moneyAvailable);
+        return super.clone();
     }
 }

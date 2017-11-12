@@ -64,8 +64,6 @@ public class Shop {
             }
         }
 
-        System.out.println("Enter your Shipping address ");
-        String address = Main.scanner.nextLine();
         System.out.println("Thanks for your purchase");
     }
 
@@ -105,14 +103,14 @@ public class Shop {
                 return b2;
         }
         else if (typeOfCompare == 4){
-            Scanner sc = new Scanner(System.in);
             System.out.println("Enter a flower name ");
-            String name = sc.nextLine();
+            String name = Main.scanner.nextLine();
             int b1_names = this.names_count(b1, name);
             int b2_names = this.names_count(b2, name);
             if (b1_names > b2_names){
                 return b1;
-            }
+            }else
+                return b2;
         }
         return null;
     }

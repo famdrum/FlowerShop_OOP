@@ -36,6 +36,9 @@ public class Main {
                     Worker.work(shop);
                     break;
                 }
+                default:{
+                    System.out.println("Thank`s");
+                }
 
 
             }
